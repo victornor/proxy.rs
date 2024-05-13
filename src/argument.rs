@@ -150,11 +150,11 @@ pub struct ServeArgs {
     pub host: String,
 
     /// Port of local proxy swrver
-    #[arg(long, default_value = "8080")]
+    #[arg(short, long, default_value = "8080")]
     pub port: u16,
 
     /// Type(s) (protocols) that need to be check on support by proxy
-    #[arg(long, required = true, num_args(1..),
+    #[arg(short, long, required = true, num_args(1..),
         value_parser([
             PossibleValue::new("HTTP"),
             PossibleValue::new("HTTPS"),
@@ -166,7 +166,7 @@ pub struct ServeArgs {
     pub types: Vec<String>,
 
     /// Path to the file with proxies. If specified, used instead of providers
-    #[arg(long, num_args(1..))]
+    #[arg(short, long, num_args(1..))]
     pub files: Vec<std::path::PathBuf>,
 
     /// Level(s) of anonymity (for HTTP only). By default, any level
